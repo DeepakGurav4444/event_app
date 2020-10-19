@@ -23,13 +23,17 @@ class EventService {
 
       event.description = description;
 
-      EventReminder _eventReminder = new EventReminder();
-      _eventReminder.method = "email";
-      _eventReminder.minutes = 60;
+      EventReminder _eventReminder1 = new EventReminder();
+      _eventReminder1.method = "email";
+      _eventReminder1.minutes = 60;
+
+      EventReminder _eventReminder2 = new EventReminder();
+      _eventReminder2.method = "popup";
+      _eventReminder2.minutes = 60;
 
       EventReminders _reminders = new EventReminders();
       _reminders.useDefault = false;
-      _reminders.overrides.add(_eventReminder);
+      _reminders.overrides = [_eventReminder1, _eventReminder2];
       event.reminders = _reminders;
 
       EventDateTime start = new EventDateTime();
